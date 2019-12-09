@@ -6,7 +6,7 @@
 /*   By: darodrig <darodrig@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/09 12:18:04 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/09 12:18:08 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/09 17:57:33 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ int	ft_printf(const char *s, ...)
 		{
 			ft_putchar('%', pf);
 			s++;
+		}
+		else
+		{
+			pf->format = ft_substr(s, 1, ft_indexof(s, "cpuidsxX") + 1);
+			ft_getformat(pf->format, pf);
 		}
 		s++;
 	}
