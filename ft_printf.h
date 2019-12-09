@@ -19,7 +19,8 @@ typedef struct	s_pf
 int	ft_strlen(const char *s);
 int	ft_printf(const char *s, ...);
 char	*ft_strjoin(const char *s1, const char *s2);
-void	ft_putchar(char c, t_pf pf);
-void	ft_putstr(const char *str, t_pf pf);
+void	ft_putchar(char c, t_pf *pf);
+void	ft_putstr(const char *str, t_pf *pf);
+void	pf_init(t_pf *pf);
 
 #endif
