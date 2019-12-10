@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 19:47:12 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:54:39 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ char			*ft_chardup(char c);
 void			ft_print_char(t_pf *pf, va_list arg);
 char			*ft_spaces(int n);
 #endif
-
