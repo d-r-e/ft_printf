@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:22:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 19:06:51 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:14:16 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_trunc(char **s, size_t len)
 
 void	ft_enlarge(char **s, size_t len, t_pf *pf)
 {
-	char	*spaces;
+	chdar	*spaces;
 	char	*new;
 
 	if (len > ft_strlen(*s))
@@ -61,10 +61,7 @@ void	ft_print_string(t_pf *pf, va_list arg)
 {
 	pf->str = ft_strdup(va_arg(arg, char*));
 	if (!pf->str)
-	{
-		ft_putstr("(null)", pf);
-		return ;
-	}
+		pf->str = ft_strdup("(null)");
 	if (pf->prec != -1)
 		ft_trunc(&pf->str, pf->prec);
 	if (pf->width != -1)
