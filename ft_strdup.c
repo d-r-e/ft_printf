@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf.c                                            :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 15:57:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 15:57:33 by darodrig         ###   ########.fr       */
+/*   Created: 2019/11/05 16:52:31 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/10 16:01:24 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_init(t_pf *pf)
+char	*ft_strdup(const char *s1)
 {
-	pf->printed = 0;
-	pf->zero = 0;
-	pf->left = 0;
-	pf->width = 0;
-	pf->prec = 0;
-}
+	char	*s2;
+	int		i;
+	int		len;
 
-void	pf_reset(t_pf *pf)
-{
-	pf->zero = 0;
-	pf->left = 0;
-	pf->width = 0;
-	pf->prec = 0;
+	len = 0;
+	while (s1[len])
+		len++;
+	if (!(s2 = malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	i = 0;
+	while (s1[i])
+	{
+		s2[i] = s1[i];
+		i++;
+	}
+	s2[i] = '\0';
+	return (s2);
 }
