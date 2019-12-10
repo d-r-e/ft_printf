@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 18:27:26 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:47:12 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void			ft_printchars(int n, char c, t_pf *pf);
 void			ft_trunc(char **s, size_t len);
 void			ft_enlarge(char **s, size_t len, t_pf *pf);
 void			ft_print_string(t_pf *pf, va_list arg);
-
+char			*ft_chardup(char c);
+void			ft_print_char(t_pf *pf, va_list arg);
+char			*ft_spaces(int n);
 #endif
 

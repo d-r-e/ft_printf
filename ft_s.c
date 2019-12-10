@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:22:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 19:14:16 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:46:28 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_spaces(int n)
 	char	*s;
 	int		i;
 
+	if (n < 1)
+		return (ft_strdup(""));
 	i = 0;
 	if (!(s = malloc(sizeof(char) * (n + 1))))
 		return (NULL);
@@ -41,7 +43,7 @@ void	ft_trunc(char **s, size_t len)
 
 void	ft_enlarge(char **s, size_t len, t_pf *pf)
 {
-	chdar	*spaces;
+	char	*spaces;
 	char	*new;
 
 	if (len > ft_strlen(*s))

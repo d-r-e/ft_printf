@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 19:02:26 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:22:35 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_format(t_pf *pf, va_list arg)
 	ft_asterix(pf, arg);
 	if (pf->format[ft_strlen(pf->format) - 1] == 's')
 		ft_print_string(pf, arg);
+	if (pf->format[ft_strlen(pf->format) - 1] == 'c')
+	   ft_print_char(pf, arg);	
 	free(pf->format);
 	pf_reset(pf);
 }
