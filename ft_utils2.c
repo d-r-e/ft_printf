@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pf.c                                            :+:      :+:    :+:   */
+/*   ft_utils2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 15:57:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 18:53:10 by darodrig         ###   ########.fr       */
+/*   Created: 2019/12/10 16:58:00 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/10 17:03:16 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	pf_init(t_pf *pf)
+void	ft_printchars(int n, char c, t_pf *pf)
 {
-	pf->printed = 0;
-	pf->zero = 0;
-	pf->left = 0;
-	pf->width = -1;
-	pf->prec = -1;
-}
-
-void	pf_reset(t_pf *pf)
-{
-	pf->zero = 0;
-	pf->left = 0;
-	pf->width = -1;
-	pf->prec = -1;
+	while (n > 0)
+	{
+		ft_putchar(c , pf);
+		n--;
+	}
 }

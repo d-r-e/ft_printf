@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/05 16:52:31 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 16:01:24 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 19:06:42 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_strdup(const char *s1)
 	int		i;
 	int		len;
 
+	if (!s1)
+		return (NULL);
 	len = 0;
 	while (s1[len])
 		len++;

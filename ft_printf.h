@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 16:00:33 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 18:27:26 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ typedef struct	s_pf
 
 size_t			ft_strlen(const char *s);
 int				ft_printf(const char *s, ...);
-
 char			*ft_strjoin(const char *s1, const char *s2);
 void			ft_putchar(char c, t_pf *pf);
 void			ft_putstr(const char *str, t_pf *pf);
@@ -44,4 +43,11 @@ char			*ft_itoa_base(long long nbr, int base);
 char			*ft_strdup(const char *s1);
 char			*ft_itoa(int nbr);
 char			*ft_utoa(unsigned int nbr);
+void			ft_asterix(t_pf *pf, va_list arg);
+void			ft_printchars(int n, char c, t_pf *pf);
+void			ft_trunc(char **s, size_t len);
+void			ft_enlarge(char **s, size_t len, t_pf *pf);
+void			ft_print_string(t_pf *pf, va_list arg);
+
 #endif
+
