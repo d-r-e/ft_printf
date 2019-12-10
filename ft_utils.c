@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:53:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 19:06:00 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 20:18:30 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,7 @@ void	ft_getformat(const char *f, t_pf *pf)
 		if (*f++ == '.' && (pf->prec++))
 		{
 			while (ft_isdigit(*f))
-			{
-				pf->prec = pf->prec * 10 + (*f - '0');
-				f++;
-			}
+				pf->prec = pf->prec * 10 + (*f++ - '0');
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 16:58:00 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 17:03:16 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 20:14:32 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_printchars(int n, char c, t_pf *pf)
 {
 	while (n > 0)
 	{
-		ft_putchar(c , pf);
+		ft_putchar(c, pf);
 		n--;
 	}
 }
