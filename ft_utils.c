@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:53:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 15:57:09 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/10 17:21:49 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,14 @@ void	ft_getformat(const char *f, t_pf *pf)
 {
 	while (*f)
 	{
-		if (*f == '-' && (pf->left = 1))
+		while (ft_indexof(f, "-0") > -1)
+		{
+			if (*f == '-')
+				pf->left = 1;
+			if (*f == '0')
+				pf->zero = 1;
 			f++;
-		else if (*f == '0' && (pf->zero = 1))
-			f++;
+		}
 		while (ft_isdigit(*f))
 		{
 			pf->width = pf->width * 10 + (*f - '0');
@@ -92,9 +96,9 @@ void	ft_asterix(t_pf *pf, va_list arg)
 
 	new = ft_strdup("");
 	i = 0;
-	while (*pf->str)
+	while (*pf->format)
 	{
-		if (*pf->str == '*')
+		if (*pf->format == '*')
 		{
 			nb = ft_itoa(va_arg(arg, int));
 			tmp = ft_strjoin(new, nb);
@@ -103,8 +107,8 @@ void	ft_asterix(t_pf *pf, va_list arg)
 			free(nb);
 		}
 		else
-			ft_append(&new, *pf->str);
-		pf->str++;
+			ft_append(&new, *pf->format);
+		pf->format++;
 	}
-	pf->str = new;
+	pf->format = new;
 }
