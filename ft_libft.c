@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_libft.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/12/10 20:12:35 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/10 20:13:17 by darodrig         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 size_t	ft_strlen(const char *s)
@@ -16,8 +28,8 @@ size_t	ft_strlen(const char *s)
 char	*ft_strjoin(const char *s1, const char *s2)
 {
 	char	*new;
-	int 	i;
-	int	j;
+	int		i;
+	int		j;
 
 	if (!(new = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
@@ -37,7 +49,7 @@ char	*ft_strjoin(const char *s1, const char *s2)
 	return (new);
 }
 
-char		*ft_substr(const char *s, unsigned int start, size_t len)
+char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	i;
@@ -64,7 +76,7 @@ char		*ft_substr(const char *s, unsigned int start, size_t len)
 	return (sub);
 }
 
-int	ft_isdigit(int c)
+int		ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
