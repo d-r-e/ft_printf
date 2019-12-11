@@ -1,36 +1,15 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils2.c                                        :+:      :+:    :+:   */
+/*   ft_i.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 16:58:00 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 16:17:01 by darodrig         ###   ########.fr       */
+/*   Created: 2019/12/11 13:57:45 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/11 14:14:25 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_printchars(int n, char c, t_pf *pf)
-{
-	while (n > 0)
-	{
-		ft_putchar(c, pf);
-		n--;
-	}
-}
 
-void	ft_toupper(char **str)
-{
-	int i;
-
-	i = 0;
-	while (*str[i])
-	{
-		if (*str[i] >= 'a' && *str[i] <= 'z')
-			*str[i] = *str[i] + ('A' - 'a');
-		i++;
-	}
-	ft_printf("%s", *str);
-}

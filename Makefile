@@ -6,7 +6,7 @@
 #    By: darodrig <darodrig@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/09 13:22:42 by darodrig          #+#    #+#              #
-#    Updated: 2019/12/11 11:38:53 by darodrig         ###   ########.fr        #
+#    Updated: 2019/12/11 14:16:17 by darodrig         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -Werror
 INCLUDE = ft_printf.h
 
 SRC = ft_libft.c  ft_pf.c  ft_printf.c  ft_put.c ft_utils.c ft_itoa_base.c \
-	  ft_strdup.c ft_itoa.c ft_utoa.c ft_utils2.c ft_s.c ft_c.c ft_p.c
+	  ft_strdup.c ft_itoa.c ft_utoa.c ft_utils2.c ft_s.c ft_c.c ft_p.c ft_x.c
 
 OBJ = $(SRC:.c=.o)
 

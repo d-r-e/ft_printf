@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 12:21:23 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/11 16:06:57 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,23 @@
 
 void	ft_format(t_pf *pf, va_list arg)
 {
+	char	format;
+
+	format = pf->format[ft_strlen(pf->format) - 1];
 	ft_asterix(pf, arg);
-	if (pf->format[ft_strlen(pf->format) - 1] == 's')
+	if (format == 's')
 		ft_print_string(pf, arg);
-	if (pf->format[ft_strlen(pf->format) - 1] == 'c')
+	if (format == 'c')
 		ft_print_char(pf, arg);
-	if (pf->format[ft_strlen(pf->format) - 1] == 'p')
+	if (format == 'p')
 		ft_print_pointer(pf, arg);
-	if (pf->format[ft_strlen(pf->format) - 1] == '%')
+	if (format == '%')
 		ft_print_percent(pf);
+	if (format == 'x' || format == 'X')
+		ft_print_hexa(pf, arg);
+	//if (format == 'd' || format == 'i')
+	//	ft_print_int(pf);
+	
 	free(pf->format);
 	pf_reset(pf);
 }

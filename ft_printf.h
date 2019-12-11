@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 12:22:04 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/11 16:10:25 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,9 @@ void			ft_print_char(t_pf *pf, va_list arg);
 char			*ft_spaces(int n);
 void			ft_print_pointer(t_pf *pf, va_list arg);
 void			ft_print_percent(t_pf *pf);
+void			ft_print_int(t_pf *pf, va_list arg);
+void 			ft_print_hexa(t_pf *pf, va_list arg);
+void			ft_print_hexa2(t_pf *pf);
+void			ft_toupper(char **str);
+
 #endif
