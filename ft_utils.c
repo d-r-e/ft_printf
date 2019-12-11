@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:53:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 20:18:30 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/11 12:02:51 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_indexof(const char *s, const char *set)
 	int i;
 	int j;
 
-	i = 0;
+	i = 1;
 	while (s[i])
 	{
 		j = 0;

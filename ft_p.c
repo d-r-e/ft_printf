@@ -1,45 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_c.c                                             :+:      :+:    :+:   */
+/*   ft_p.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/10 19:14:28 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 12:02:29 by darodrig         ###   ########.fr       */
+/*   Created: 2019/12/11 11:35:17 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/11 11:59:01 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_chardup(char c)
+void	ft_print_pointer(t_pf *pf, va_list arg)
 {
-	char	*str;
-
-	if (!c || !(str = malloc(sizeof(char) * 2)))
-		return (NULL);
-	str[0] = c;
-	str[1] = '\0';
-	return (str);
-}
-
-void	ft_print_char(t_pf *pf, va_list arg)
-{
-	char	c;
 	char	*spaces;
 
-	c = va_arg(arg, int);
-	spaces = ft_spaces(pf->width - 1);
+	pf->str = ft_strjoin("0x", ft_itoa_base((long)va_arg(arg, void*), 16));
+	spaces = ft_spaces(pf->width - ft_strlen(pf->str));
 	if (pf->left == 1)
 	{
-		ft_putchar(c, pf);
+		ft_putstr(pf->str, pf);
 		ft_putstr(spaces, pf);
 	}
 	else
 	{
 		ft_putstr(spaces, pf);
-		ft_putchar(c, pf);
+		ft_putstr(pf->str, pf);
 	}
 	free(spaces);
-	pf_reset(pf);
+	free(pf->str);
+	pf_reset(pf);	
+}
+
+void	ft_print_percent(t_pf *pf, va_list arg)
+{
+	(void)pf;
+	(void)arg;
 }
