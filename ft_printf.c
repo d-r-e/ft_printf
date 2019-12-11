@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 12:07:43 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/11 12:21:23 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_format(t_pf *pf, va_list arg)
 	if (pf->format[ft_strlen(pf->format) - 1] == 'p')
 		ft_print_pointer(pf, arg);
 	if (pf->format[ft_strlen(pf->format) - 1] == '%')
-		ft_print_percent(pf, arg);
+		ft_print_percent(pf);
 	free(pf->format);
 	pf_reset(pf);
 }

@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:35:17 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 11:59:01 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/11 12:34:03 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,30 @@ void	ft_print_pointer(t_pf *pf, va_list arg)
 	}
 	free(spaces);
 	free(pf->str);
-	pf_reset(pf);	
+	pf_reset(pf);
 }
 
-void	ft_print_percent(t_pf *pf, va_list arg)
+void	ft_print_percent(t_pf *pf)
 {
-	(void)pf;
-	(void)arg;
+	char	*spaces;
+
+	pf->str = ft_strdup("%");
+	spaces = ft_spaces(pf->width - ft_strlen(pf->str));
+	if (pf->zero == 1 && pf->left == 0)
+	{
+		ft_printchars(pf->width - 1, '0', pf);
+		ft_putchar('%', pf);
+	}
+	else if (pf->left == 1)
+	{
+		ft_putstr(pf->str, pf);
+		ft_putstr(spaces, pf);
+	}
+	else
+	{
+		ft_putstr(spaces, pf);
+		ft_putstr(pf->str, pf);
+	}
+	free(spaces);
+	free(pf->str);
 }
