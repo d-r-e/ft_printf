@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:57:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 18:53:10 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/12 18:28:46 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	pf_init(t_pf *pf)
 	pf->left = 0;
 	pf->width = -1;
 	pf->prec = -1;
+	pf->sign = 1;
+	pf->nb = 0;
 }
 
 void	pf_reset(t_pf *pf)
@@ -27,4 +29,6 @@ void	pf_reset(t_pf *pf)
 	pf->left = 0;
 	pf->width = -1;
 	pf->prec = -1;
+	pf->sign = 1;
+	pf->nb = 0;
 }
