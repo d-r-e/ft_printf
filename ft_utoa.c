@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/11 16:18:46 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/10 16:01:53 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 16:19:04 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char		*ft_utoa(unsigned int nbr)
 	size_t	len;
 	char	*str;
 
+	if (nbr == 4294967295u)
+		return (ft_strdup("4294967295"));
 	n = nbr;
 	len = (n > 0) ? 0 : 1;
 	n = (n > 0) ? n : -n;

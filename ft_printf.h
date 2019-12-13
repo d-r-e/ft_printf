@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 15:54:24 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 16:27:47 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct	s_pf
 	char	*format;
 	char	*str;
 	int		sign;
-	int		nb;
+	long	nb;
 	char	*signstr;
 }				t_pf;
 
@@ -65,4 +65,7 @@ int				ft_strcmp(const char *s1, const char *s2);
 void			ft_print_int(t_pf *pf, va_list arg);
 void			ft_print_int1(t_pf *pf);
 void			ft_print_int2(t_pf *pf);
+void			ft_print_unsigned(t_pf *pf, va_list arg);
+void			ft_print_uns1(t_pf *pf);
+void			ft_print_uns2(t_pf *pf);
 #endif

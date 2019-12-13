@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_i.c                                             :+:      :+:    :+:   */
+/*   ft_u.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 13:57:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 16:26:55 by darodrig         ###   ########.fr       */
+/*   Created: 2019/12/13 16:20:40 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/13 16:27:37 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_int(t_pf *pf, va_list arg)
+void	ft_print_unsigned(t_pf *pf, va_list arg)
 {
 	char	*tmp;
 
-	pf->nb = va_arg(arg, int);
-	if (pf->nb < 0 && (pf->sign = -1))
-	{
-		pf->nb = -pf->nb;
-		pf->signstr = ft_strdup("-");
-	}
-	else
-		pf->signstr = ft_strdup("");
+	pf->nb = va_arg(arg, unsigned int);
+	pf->signstr = ft_strdup("");
 	pf->str = ft_utoa(pf->nb);
 	tmp = ft_strjoin(ft_zeros(pf->prec - ft_strlen(pf->str)), pf->str);
 	free(pf->str);
 	pf->str = tmp;
 	if (pf->left == 1)
-		ft_print_int1(pf);
+		ft_print_uns1(pf);
 	else
-		ft_print_int2(pf);
+		ft_print_uns2(pf);
 	free(pf->str);
 	free(pf->signstr);
 }
 
-void	ft_print_int2(t_pf *pf)
+void	ft_print_uns2(t_pf *pf)
 {
 	if (pf->zero == 1 && pf->prec == -1)
 	{
@@ -56,7 +50,7 @@ void	ft_print_int2(t_pf *pf)
 	}
 }
 
-void	ft_print_int1(t_pf *pf)
+void	ft_print_uns1(t_pf *pf)
 {
 	char	*tmp;
 	char	*zeros;
