@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/12 14:46:18 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 15:53:53 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	ft_format(t_pf *pf, va_list arg)
 		ft_print_hexa(pf, arg);
 	if (format == 'd' || format == 'i')
 		ft_print_int(pf, arg);
-	
 	free(pf->format);
 	pf_reset(pf);
 }

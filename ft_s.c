@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 17:22:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/12 15:24:05 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 15:36:10 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,30 +32,36 @@ char	*ft_spaces(int n)
 	return (s);
 }
 
-char    *ft_zeros(int n)
+char	*ft_zeros(int n)
 {
-    char    *s;
-    int     i;
+	char	*s;
+	int		i;
 
-    if (n < 1)
-        return (ft_strdup(""));
-    i = 0;
-    if (!(s = malloc(sizeof(char) * (n + 1))))
-        return (NULL);
-    while (n > 0)
-    {
-        s[i] = '0';
-        i++;
-        n--;
-    }
-    s[i] = '\0';
-    return (s);
+	if (n < 1)
+		return (ft_strdup(""));
+	i = 0;
+	if (!(s = malloc(sizeof(char) * (n + 1))))
+		return (NULL);
+	while (n > 0)
+	{
+		s[i] = '0';
+		i++;
+		n--;
+	}
+	s[i] = '\0';
+	return (s);
 }
 
 void	ft_trunc(char **s, size_t len)
 {
 	char	*tmp;
 
+	if (len == 0)
+	{
+		tmp = ft_strdup("");
+		free(*s);
+		*s = tmp;
+	}
 	tmp = ft_substr(*s, 0, len);
 	free(*s);
 	*s = tmp;
