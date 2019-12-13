@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 13:57:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 15:26:30 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 15:31:41 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,7 @@ void	ft_print_int(t_pf *pf, va_list arg)
 	free(pf->str);
 	pf->str = tmp;
 	if (pf->left == 1)
-	{
-		if (pf->prec == 0)
-        	ft_trunc(&pf->str, pf->prec);
-		tmp = ft_strjoin(ft_zeros(pf->prec - ft_strlen(pf->str)), pf->str);
-		free(pf->str);
-		pf->str = tmp;
-		ft_putstr(pf->signstr, pf);
-		ft_putstr(pf->str, pf);
-		ft_printchars(pf->width - ft_strlen(pf->str) - ft_strlen(pf->signstr)\
-			, ' ', pf);
-	}
+		ft_print_int1(pf);
 	else
 		ft_print_int2(pf);
 	free(pf->str);
@@ -64,4 +54,19 @@ void	ft_print_int2(t_pf *pf)
 		ft_putstr(pf->signstr, pf);
 		ft_putstr(pf->str, pf);
 	}
+}
+
+void	ft_print_int1(t_pf *pf)
+{
+	char	*tmp;
+
+	if (pf->prec == 0)
+		ft_trunc(&pf->str, pf->prec);
+	tmp = ft_strjoin(ft_zeros(pf->prec - ft_strlen(pf->str)), pf->str);
+	free(pf->str);
+	pf->str = tmp;
+	ft_putstr(pf->signstr, pf);
+	ft_putstr(pf->str, pf);
+	ft_printchars(pf->width - ft_strlen(pf->str) - ft_strlen(pf->signstr)\
+		, ' ', pf);
 }
