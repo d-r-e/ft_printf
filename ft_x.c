@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/12/11 14:14:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/11 16:11:58 by darodrig         ###   ########.fr       */
+/*   Created: 2019/12/13 16:20:40 by darodrig          #+#    #+#             */
+/*   Updated: 2019/12/13 18:23:10 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,58 @@
 
 void	ft_print_hexa(t_pf *pf, va_list arg)
 {
-	pf->str = ft_itoa_base(va_arg(arg, unsigned int), 16);
-	if (pf->prec != -1)
-	{
-		ft_printchars(pf->prec - ft_strlen(pf->str), '0', pf);
-		ft_putstr(pf->str, pf);
-		free(pf->str);
-		return ;
-	}
-	else if (pf->left == 1)
-	{
-		ft_putstr(pf->str, pf);
-		if (pf->prec != -1)
-			ft_printchars(pf->prec - ft_strlen(pf->str), '0', pf);
-		else if (pf->width != -1)
-			ft_printchars(pf->width - ft_strlen(pf->str), ' ', pf);
-		free(pf->str);
-		return ;
-	}
+	char	*tmp;
+
+	pf->nb = va_arg(arg, unsigned int);
+	pf->signstr = ft_strdup("");
+	pf->str = ft_itoa_base(pf->nb, 16);
+	if (pf->format[ft_strlen(pf->format) - 1] == 'X')
+		pf->str = ft_toupper(pf->str);
+	tmp = ft_strjoin(ft_zeros(pf->prec - ft_strlen(pf->str)), pf->str);
+	free(pf->str);
+	pf->str = tmp;
+	if (pf->left == 1)
+		ft_print_hex1(pf);
 	else
-		ft_print_hexa2(pf);
+		ft_print_hex2(pf);
+	free(pf->str);
+	free(pf->signstr);
 }
 
-void	ft_print_hexa2(t_pf *pf)
+void	ft_print_hex2(t_pf *pf)
 {
-	char c;
-
-	if (pf->zero == 1)
-		c = '0';
+	if (pf->zero == 1 && pf->prec == -1)
+	{
+		ft_putstr(pf->signstr, pf);
+		ft_printchars(pf->width - ft_strlen(pf->str) - \
+				ft_strlen(pf->signstr), '0', pf);
+		ft_putstr(pf->str, pf);
+	}
 	else
-		c = ' ';
-	if (pf->prec != -1)
-		ft_printchars(pf->prec - ft_strlen(pf->str), c, pf);
-	else if (pf->width != -1)
-		ft_printchars(pf->width - ft_strlen(pf->str), c, pf);
-	ft_putstr(pf->str, pf);
+	{
+		if (pf->prec == 0)
+			ft_trunc(&pf->str, pf->prec);
+		ft_printchars(pf->width - ft_strlen(pf->str) - \
+				ft_strlen(pf->signstr), ' ', pf);
+		ft_putstr(pf->signstr, pf);
+		ft_putstr(pf->str, pf);
+	}
+}
+
+void	ft_print_hex1(t_pf *pf)
+{
+	char	*tmp;
+	char	*zeros;
+
+	if (pf->prec == 0)
+		ft_trunc(&pf->str, pf->prec);
+	zeros = ft_zeros(pf->prec - ft_strlen(pf->str));
+	tmp = ft_strjoin(zeros, pf->str);
+	free(zeros);
 	free(pf->str);
+	pf->str = tmp;
+	ft_putstr(pf->signstr, pf);
+	ft_putstr(pf->str, pf);
+	ft_printchars(pf->width - ft_strlen(pf->str) - ft_strlen(pf->signstr)\
+		, ' ', pf);
 }

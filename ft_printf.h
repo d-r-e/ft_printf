@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 16:27:47 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 18:22:19 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ char			*ft_itoa_base(long long nbr, int base);
 char			*ft_strdup(const char *s1);
 char			*ft_itoa(int nbr);
 char			*ft_utoa(unsigned int nbr);
-void			ft_asterix(t_pf *pf, va_list arg);
+void			ft_append(char **str, char c);
+char			*ft_toupper(char *str);
 void			ft_printchars(int n, char c, t_pf *pf);
 void			ft_trunc(char **s, size_t len);
 void			ft_enlarge(char **s, size_t len, t_pf *pf);
@@ -59,8 +60,8 @@ void			ft_print_pointer(t_pf *pf, va_list arg);
 void			ft_print_percent(t_pf *pf);
 void			ft_print_int(t_pf *pf, va_list arg);
 void			ft_print_hexa(t_pf *pf, va_list arg);
-void			ft_print_hexa2(t_pf *pf);
-void			ft_toupper(char **str);
+void			ft_print_hex2(t_pf *pf);
+void			ft_print_hex1(t_pf *pf);
 int				ft_strcmp(const char *s1, const char *s2);
 void			ft_print_int(t_pf *pf, va_list arg);
 void			ft_print_int1(t_pf *pf);

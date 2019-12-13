@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:53:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 15:13:07 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 18:24:59 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,34 +80,25 @@ void	ft_append(char **str, char c)
 		return ;
 	append[0] = c;
 	append[1] = '\0';
-	new = ft_strjoin(*str, append);
+	if (!str)
+		new = ft_strdup(append);
+	else
+		new = ft_strjoin(*str, append);
 	if (*str)
 		free(*str);
 	*str = new;
 }
 
-void	ft_asterix(t_pf *pf, va_list arg)
+char	*ft_toupper(char *str)
 {
-	char	*new;
-	char	*tmp;
-	int		i;
-	char	*nb;
+	int i;
 
-	new = ft_strdup("");
 	i = 0;
-	while (*pf->format)
+	while (str[i])
 	{
-		if (*pf->format == '*')
-		{
-			nb = ft_itoa(va_arg(arg, int));
-			tmp = ft_strjoin(new, nb);
-			free(new);
-			new = tmp;
-			free(nb);
-		}
-		else
-			ft_append(&new, *pf->format);
-		pf->format++;
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] + ('A' - 'a');
+		i++;
 	}
-	pf->format = new;
+	return (str);
 }

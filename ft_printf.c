@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 16:26:08 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/13 18:25:22 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_format(t_pf *pf, va_list arg)
 	char	format;
 
 	format = pf->format[ft_strlen(pf->format) - 1];
-	ft_asterix(pf, arg);
 	if (format == 's')
 		ft_print_string(pf, arg);
 	if (format == 'c')
@@ -45,12 +44,10 @@ int		ft_printf(const char *s, ...)
 		return (0);
 	pf_init(pf);
 	va_start(arg, s);
-	while (*s)
+	while (*s != '\0')
 	{
 		if (*s != '%')
 			ft_putchar(*s, pf);
-		else if (*(s + 1) == '%' && (s++))
-			ft_putchar('%', pf);
 		else
 		{
 			pf->format = ft_substr(s, 1, ft_indexof(s, "cpuidsxX%"));
