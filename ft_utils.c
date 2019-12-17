@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:53:22 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 18:24:59 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 11:42:23 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,24 +69,6 @@ int		ft_bigger(int a, int b)
 	if (a > b)
 		return (a);
 	return (b);
-}
-
-void	ft_append(char **str, char c)
-{
-	char	*new;
-	char	append[2];
-
-	if (!str || !*str)
-		return ;
-	append[0] = c;
-	append[1] = '\0';
-	if (!str)
-		new = ft_strdup(append);
-	else
-		new = ft_strjoin(*str, append);
-	if (*str)
-		free(*str);
-	*str = new;
 }
 
 char	*ft_toupper(char *str)

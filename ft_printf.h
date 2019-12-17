@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:36 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 18:22:19 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 11:38:53 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,8 @@ void			ft_print_int2(t_pf *pf);
 void			ft_print_unsigned(t_pf *pf, va_list arg);
 void			ft_print_uns1(t_pf *pf);
 void			ft_print_uns2(t_pf *pf);
+void			ft_append(char **str, char c);
+void			ft_asterix(t_pf *pf, va_list arg);
+int				ft_is_format(char c);
+int				ft_count_perc(const char *s);
 #endif

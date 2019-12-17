@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 15:43:55 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 18:25:22 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 11:38:01 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_printf(const char *s, ...)
 	va_list	arg;
 	t_pf	*pf;
 
-	if (!(pf = malloc(sizeof(t_pf))))
+	if (ft_count_perc(s) < 0 || !(pf = malloc(sizeof(t_pf))))
 		return (0);
 	pf_init(pf);
 	va_start(arg, s);
@@ -51,6 +51,7 @@ int		ft_printf(const char *s, ...)
 		else
 		{
 			pf->format = ft_substr(s, 1, ft_indexof(s, "cpuidsxX%"));
+			ft_asterix(pf, arg);
 			ft_getformat(pf->format, pf);
 			ft_format(pf, arg);
 			s += ft_indexof(s, "cpuidsxX%");
@@ -58,5 +59,6 @@ int		ft_printf(const char *s, ...)
 		s++;
 	}
 	va_end(arg);
+	free(pf);
 	return (pf->printed);
 }

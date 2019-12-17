@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 13:57:45 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 16:26:55 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 11:00:48 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_print_int(t_pf *pf, va_list arg)
 {
 	char	*tmp;
+	char	*zeros;
 
 	pf->nb = va_arg(arg, int);
 	if (pf->nb < 0 && (pf->sign = -1))
@@ -25,7 +26,8 @@ void	ft_print_int(t_pf *pf, va_list arg)
 	else
 		pf->signstr = ft_strdup("");
 	pf->str = ft_utoa(pf->nb);
-	tmp = ft_strjoin(ft_zeros(pf->prec - ft_strlen(pf->str)), pf->str);
+	zeros = ft_zeros(pf->prec - ft_strlen(pf->str));
+	tmp = ft_strjoin(zeros, pf->str);
 	free(pf->str);
 	pf->str = tmp;
 	if (pf->left == 1)
@@ -33,6 +35,7 @@ void	ft_print_int(t_pf *pf, va_list arg)
 	else
 		ft_print_int2(pf);
 	free(pf->str);
+	free(zeros);
 	free(pf->signstr);
 }
 
