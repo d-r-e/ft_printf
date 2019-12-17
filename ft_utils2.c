@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/10 16:58:00 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/17 11:30:32 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:52:36 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_count_perc(const char *s)
 		if (*s == '%')
 		{
 			if (ft_strcmp(s, "%") == 0)
-				return (-1);	
+				return (-1);
 			if (!*(s + 1))
 				return (-2);
 			if (ft_indexof(s, "cpuidsxX%") == -1)
