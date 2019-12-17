@@ -6,7 +6,7 @@
 /*   By: darodrig <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/11 11:35:17 by darodrig          #+#    #+#             */
-/*   Updated: 2019/12/13 19:02:26 by darodrig         ###   ########.fr       */
+/*   Updated: 2019/12/17 15:58:22 by darodrig         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 void	ft_print_pointer(t_pf *pf, va_list arg)
 {
 	char	*spaces;
+	char	*nb;
 
-	pf->str = ft_strjoin("0x", ft_itoa_base((long)va_arg(arg, void*), 16));
+	nb = ft_itoa_base((long)va_arg(arg, void*), 16);
+	pf->str = ft_strjoin("0x", nb);
+	free(nb);
 	if (pf->prec == 0)
 		ft_trunc(&pf->str, 2);
 	spaces = ft_spaces(pf->width - ft_strlen(pf->str));
